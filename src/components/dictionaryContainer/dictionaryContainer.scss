@@ -1,0 +1,35 @@
+.dictionaryContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+}
+
+.firstSection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 52px;
+
+  .rightSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.dropDown {
+  padding: 13px;
+  position: relative;
+  .dropdown-label {
+    margin-right: 10px;
+  }
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  border-left: 1px solid #e9e9e9;
+}

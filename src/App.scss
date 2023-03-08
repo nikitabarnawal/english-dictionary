@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding: 58px 351px;
+  box-sizing: border-box;
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+@media screen and (min-width: 280px) and (max-width: 912px) {
+  .App {
+    padding: 24px;
+  }
+}

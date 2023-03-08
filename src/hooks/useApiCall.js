@@ -21,7 +21,7 @@ export const useApiCall = () => {
         console.log(err)
       }
     }
-  }, 1000)
+  }, 500)
 
   useEffect(() => {
     const abortController = new AbortController()

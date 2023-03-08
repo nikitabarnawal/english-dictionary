@@ -50,9 +50,14 @@ const DictionaryContainer = () => {
               partOfSpeech={partOfSpeech}
             />
           ))}
+          <footer className="footer">
+            <span className="source">Source</span>
+            <span className="sourceUrl">
+              https://en.wiktionary.org/wiki/keyboard
+            </span>
+          </footer>
         </>
       ) : null}
-      <footer className="footer"></footer>
     </div>
   )
 }

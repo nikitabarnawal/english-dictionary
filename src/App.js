@@ -3,7 +3,7 @@ import DictionaryContainer from './components/dictionaryContainer/dictionaryCont
 
 function App() {
   return (
-    <div className="App debug">
+    <div className="App">
       <DictionaryContainer />
     </div>
   )

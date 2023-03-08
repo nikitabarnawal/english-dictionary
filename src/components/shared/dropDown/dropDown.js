@@ -5,7 +5,7 @@ const DropDown = () => {
   return (
     <div className="dropdown-content">
       {dropdownData.map((data) => (
-        <div>{data}</div>
+        <div key={data}>{data}</div>
       ))}
     </div>
   )

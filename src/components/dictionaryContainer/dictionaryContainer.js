@@ -2,11 +2,16 @@ import dictionaryLogo from '../../images/logo.svg'
 import IconMoon from '../../images/icon-moon.svg'
 import DropDown from '../shared/dropDown/dropDown'
 import IconArrowDown from '../../images/icon-arrow-down.svg'
+import IconPlay from '../../images/icon-play.svg'
 import SearchBox from '../shared/searchBox/search'
 import Toggle from '../shared/toggle/toggle'
 import './dictionaryContainer.scss'
+import { useApiCall } from '../../hooks/useApiCall'
+import DefinitionDesc from './definitionDescription'
 
 const DictionaryContainer = () => {
+  const { apiResponse, search, setSearch } = useApiCall()
+  const { word, phonetic, meanings } = apiResponse
   return (
     <div className="dictionaryContainer">
       <div className="firstSection">
@@ -24,12 +29,29 @@ const DictionaryContainer = () => {
         </div>
       </div>
       <div className="searchSection">
-        <SearchBox />
+        <SearchBox setSearch={setSearch} search={search} />
       </div>
-      <section className="title"></section>
-      <section className="pronounciationSection"></section>
-      <section className="firstDesc"></section>
-      <section className="secondDesc"></section>
+      {word ? (
+        <>
+          <section className="title">
+            <div className="searchWord">
+              <span>{word}</span>
+              <span className="phonetic">{phonetic}</span>
+            </div>
+            <div className="searchAudio">
+              <img src={IconPlay} alt="audioPlayIcon" className="iconPlay" />
+            </div>
+          </section>
+          {meanings.map(({ partOfSpeech, definitions, synonyms }) => (
+            <DefinitionDesc
+              key={partOfSpeech}
+              synonyms={synonyms}
+              definitions={definitions}
+              partOfSpeech={partOfSpeech}
+            />
+          ))}
+        </>
+      ) : null}
       <footer className="footer"></footer>
     </div>
   )

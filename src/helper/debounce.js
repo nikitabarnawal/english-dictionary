@@ -4,6 +4,6 @@ export const Debounce = (fn, delay) => {
     clearTimeout(timerId)
     timerId = setTimeout(() => {
       fn.call(this, ...args)
-    }, 2000)
+    }, delay)
   }
 }

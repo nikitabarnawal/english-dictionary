@@ -10,6 +10,30 @@
   border: 1px solid red;
 }
 
+.sans {
+  font-family: 'Inter';
+}
+
+.sans > li {
+  font-family: 'Inter';
+}
+
+.serif {
+  font-family: 'Lora';
+}
+
+.serif > li {
+  font-family: 'Lora';
+}
+
+.mono {
+  font-family: 'Inconsolata';
+}
+
+.mono > li {
+  font-family: 'Inconsolata';
+}
+
 @media screen and (min-width: 280px) and (max-width: 912px) {
   .App {
     padding: 24px;

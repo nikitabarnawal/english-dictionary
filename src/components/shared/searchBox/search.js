@@ -12,7 +12,7 @@ const SearchBox = ({ search, setSearch }) => {
     <div className="searchContainer">
       <input
         ref={inputRef}
-        value={search}
+        value={search || ''}
         type="text"
         placeholder="search for any word..."
         onChange={(e) => setSearch(e.target.value)}

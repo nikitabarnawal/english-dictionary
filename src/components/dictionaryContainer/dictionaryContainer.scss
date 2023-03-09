@@ -23,12 +23,14 @@
   position: relative;
   .dropdown-label {
     margin-right: 10px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
     color: #2d2d2d;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -64,6 +66,10 @@
   height: 75px;
   width: 75px;
   object-fit: cover;
+  &:hover {
+    cursor: pointer;
+    background: #a445ed;
+  }
 }
 
 .phonetic {
@@ -107,7 +113,6 @@
 .grammar {
   display: flex;
   align-items: center;
-  font-family: 'Inconsolata';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -126,7 +131,6 @@
 .meaningTitle {
   display: flex;
   justify-content: flex-start;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -140,7 +144,6 @@
     word-break: break-word;
     margin-bottom: 13px;
     margin-right: 20px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -151,8 +154,8 @@
 
 .footer {
   text-align: left;
+  margin-bottom: 20px;
   .source {
-    font-family: 'Lora';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -162,7 +165,6 @@
     margin-right: 21px;
   }
   .sourceUrl {
-    font-family: 'Lora';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

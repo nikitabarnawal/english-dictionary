@@ -9,6 +9,18 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
+  text-align: left;
+  background: #ffffff;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.dropdown-content > div {
+  margin-bottom: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 280px) {

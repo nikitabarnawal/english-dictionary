@@ -1,12 +1,12 @@
 import './dictionaryContainer.scss'
 
-const DefinitionDesc = ({ definitions, synonyms, partOfSpeech }) => {
+const DefinitionDesc = ({ definitions, synonyms, partOfSpeech, fontClass }) => {
   return partOfSpeech ? (
     <section className="description">
-      <div className="grammar">{partOfSpeech}</div>
+      <div className={`grammar ${fontClass}`}>{partOfSpeech}</div>
       <div className="meaningDetails">
-        <div className="meaningTitle">Meaning</div>
-        <ul className="meanings">
+        <div className={`meaningTitle ${fontClass}`}>Meaning</div>
+        <ul className={`meanings ${fontClass}`}>
           {definitions?.map(({ definition }, index) => (
             <li key={index}>{definition}</li>
           ))}

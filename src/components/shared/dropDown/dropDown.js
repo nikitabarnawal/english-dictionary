@@ -6,9 +6,13 @@ import './dropDown.scss'
 const DropDown = forwardRef((props, ref) => {
   return (
     <div className="dropdown-content" ref={ref}>
-      {dropdownData.map((data) => (
-        <div key={data} onClick={() => props.handleDropdown(data)}>
-          {data}
+      {dropdownData.map(({ key, value }) => (
+        <div
+          key={key}
+          className={key}
+          onClick={() => props.handleDropdown(value)}
+        >
+          {value}
         </div>
       ))}
     </div>

@@ -1,6 +1,4 @@
 .dictionaryContainer {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
@@ -21,6 +19,9 @@
 .dropDown {
   padding: 13px;
   position: relative;
+  img:hover {
+    cursor: pointer;
+  }
   .dropdown-label {
     margin-right: 10px;
     font-style: normal;
@@ -155,6 +156,9 @@
 .footer {
   text-align: left;
   margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   .source {
     font-style: normal;
     font-weight: 400;
@@ -172,4 +176,47 @@
     text-decoration-line: underline;
     color: #2d2d2d;
   }
+}
+
+.searchAudio {
+  &:hover {
+    cursor: pointer;
+    svg {
+      circle {
+        opacity: 1;
+      }
+      path {
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.noMeaning {
+  margin-top: 50px;
+
+  .nomeaningTitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2d2d2d;
+    text-align: center;
+  }
+
+  .nomeaningMessage {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #757575;
+    text-align: center;
+  }
+}
+
+.emoji-presentation {
+  font-size: 30px;
 }

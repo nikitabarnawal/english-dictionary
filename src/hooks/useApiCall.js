@@ -18,6 +18,7 @@ export const useApiCall = () => {
       }
     } catch (err) {
       if (!signal.aborted) {
+        setApiResponse(err.response.data)
         console.log(err)
       }
     }

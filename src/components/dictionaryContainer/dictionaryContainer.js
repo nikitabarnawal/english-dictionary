@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from 'react'
+import { useState, useRef, useContext, useEffect } from 'react'
 import dictionaryLogo from '../../images/logo.svg'
 import IconMoon from '../../images/icon-moon.svg'
 import DropDown from '../shared/dropDown/dropDown'
@@ -39,7 +39,10 @@ const DictionaryContainer = () => {
     }
   }
 
-  const enableAudio = () => {
+  const phoneticAudio = phonetics?.find((phonetic) => phonetic.audio)
+
+  const enableAudio = (e) => {
+    document.getElementById('audio-play').load()
     document.getElementById('audio-play').play()
     return
   }
@@ -66,18 +69,20 @@ const DictionaryContainer = () => {
         <SearchBox setSearch={setSearch} search={search} />
       </div>
       {word ? (
-        <>
+        <main class="main">
           <section className="title">
             <div className={`searchWord ${theme}`}>
               <span>{word}</span>
-              <span className="phonetic">{phonetic}</span>
+              {phonetic && <span className="phonetic">{phonetic}</span>}
             </div>
-            <div className="searchAudio" onClick={enableAudio}>
-              <audio id="audio-play">
-                <source src={phonetics[0].audio} type="audio/mp3" />
-              </audio>
-              <IconPlay />
-            </div>
+            {phoneticAudio && (
+              <div className="searchAudio" onClick={enableAudio}>
+                <audio id="audio-play">
+                  <source src={phoneticAudio.audio} type="audio/mp3" />
+                </audio>
+                <IconPlay />
+              </div>
+            )}
           </section>
           {meanings.map(({ partOfSpeech, definitions, synonyms }) => (
             <DefinitionDesc
@@ -94,7 +99,7 @@ const DictionaryContainer = () => {
               https://en.wiktionary.org/wiki/keyboard
             </span>
           </footer>
-        </>
+        </main>
       ) : (
         <div className="noMeaning">
           <div className="emoji-presentation">{title && '🙁'}</div>

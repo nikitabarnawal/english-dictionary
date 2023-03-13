@@ -21,7 +21,11 @@ const DefinitionDesc = ({ definitions, synonyms, partOfSpeech, fontClass }) => {
       {synonyms.length > 0 ? (
         <div className="synonyms">
           <span className="synonymTitle">Synonyms</span>
-          <span className="synonymValue">{synonyms[0]}</span>
+          <div className="synonymList">
+            {synonyms.map((synonym) => (
+              <p className="synonymValue">{synonym}</p>
+            ))}
+          </div>
         </div>
       ) : null}
     </section>

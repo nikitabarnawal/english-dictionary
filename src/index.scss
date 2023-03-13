@@ -13,7 +13,7 @@ code {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 
@@ -26,4 +26,13 @@ body {
   #root {
     padding: 0%;
   }
+}
+
+h1,
+h2,
+h3,
+div,
+p {
+  margin: 0;
+  padding: 0;
 }

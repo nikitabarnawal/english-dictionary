@@ -22,7 +22,7 @@ export const useApiCall = () => {
         console.log(err)
       }
     }
-  }, 400)
+  }, 200)
 
   useEffect(() => {
     const abortController = new AbortController()

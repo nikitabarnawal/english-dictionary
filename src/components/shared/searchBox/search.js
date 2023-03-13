@@ -1,9 +1,12 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useContext } from 'react'
 import IconSearch from '../../../images/icon-search.svg'
+import ThemeContext from '../../themeContext/themeContext'
 import './search.scss'
 
 const SearchBox = ({ search, setSearch }) => {
   const inputRef = useRef(null)
+  const { theme } = useContext(ThemeContext)
+
   useEffect(() => {
     inputRef.current.focus()
   }, [])
@@ -11,6 +14,7 @@ const SearchBox = ({ search, setSearch }) => {
   return (
     <div className="searchContainer">
       <input
+        className={`searchInput ${theme}`}
         ref={inputRef}
         value={search || ''}
         type="text"

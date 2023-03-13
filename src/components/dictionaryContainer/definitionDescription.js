@@ -1,14 +1,20 @@
+import { useContext } from 'react'
+import ThemeContext from '../themeContext/themeContext'
 import './dictionaryContainer.scss'
 
 const DefinitionDesc = ({ definitions, synonyms, partOfSpeech, fontClass }) => {
+  const { theme } = useContext(ThemeContext)
+
   return partOfSpeech ? (
     <section className="description">
-      <div className={`grammar ${fontClass}`}>{partOfSpeech}</div>
+      <div className={`grammar ${fontClass} ${theme}`}>{partOfSpeech}</div>
       <div className="meaningDetails">
         <div className={`meaningTitle ${fontClass}`}>Meaning</div>
         <ul className={`meanings ${fontClass}`}>
           {definitions?.map(({ definition }, index) => (
-            <li key={index}>{definition}</li>
+            <li key={index} className={theme}>
+              {definition}
+            </li>
           ))}
         </ul>
       </div>

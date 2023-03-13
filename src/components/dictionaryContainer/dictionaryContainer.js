@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 import dictionaryLogo from '../../images/logo.svg'
 import IconMoon from '../../images/icon-moon.svg'
 import DropDown from '../shared/dropDown/dropDown'
@@ -9,10 +9,12 @@ import './dictionaryContainer.scss'
 import { useApiCall } from '../../hooks/useApiCall'
 import DefinitionDesc from './definitionDescription'
 import { IconPlay } from '../../icon/iconPlay'
+import ThemeContext from '../themeContext/themeContext'
 
 const DictionaryContainer = () => {
   const [fontClass, setFontClass] = useState('sans')
   const { apiResponse, search, setSearch } = useApiCall()
+  const { theme } = useContext(ThemeContext)
   const { word, phonetic, meanings, phonetics, message, resolution, title } =
     apiResponse
   const contentRef = useRef(null)
@@ -48,7 +50,9 @@ const DictionaryContainer = () => {
         <img src={dictionaryLogo} alt="dictionaryLogo" />
         <div className="rightSection">
           <div className="dropDown" onClick={showDropdown}>
-            <span className={`dropdown-label ${fontClass}`}>Sans Serif</span>
+            <span className={`dropdown-label ${fontClass} ${theme}`}>
+              Sans Serif
+            </span>
             <img src={IconArrowDown} alt="icon-arrow-down" />
             <DropDown ref={contentRef} handleDropdown={handleDropdown} />
           </div>
@@ -64,7 +68,7 @@ const DictionaryContainer = () => {
       {word ? (
         <>
           <section className="title">
-            <div className="searchWord">
+            <div className={`searchWord ${theme}`}>
               <span>{word}</span>
               <span className="phonetic">{phonetic}</span>
             </div>
@@ -86,7 +90,7 @@ const DictionaryContainer = () => {
           ))}
           <footer className={`footer ${fontClass} `}>
             <span className="source">Source</span>
-            <span className="sourceUrl">
+            <span className={`sourceUrl ${theme}`}>
               https://en.wiktionary.org/wiki/keyboard
             </span>
           </footer>

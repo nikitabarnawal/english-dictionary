@@ -8,27 +8,15 @@
 }
 
 .sans {
-  font-family: 'Inter';
-}
-
-.sans > li {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
 }
 
 .serif {
-  font-family: 'Lora';
-}
-
-.serif > li {
-  font-family: 'Lora';
+  font-family: 'Lora', serif;
 }
 
 .mono {
-  font-family: 'Inconsolata';
-}
-
-.mono > li {
-  font-family: 'Inconsolata';
+  font-family: 'Inconsolata', monospace;
 }
 
 .dark {
@@ -39,5 +27,8 @@
 @media screen and (min-width: 280px) and (max-width: 912px) {
   .App {
     padding: 24px;
+  }
+  .searchWord {
+    font-size: 30px;
   }
 }

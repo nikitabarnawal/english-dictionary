@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from 'react'
+import { useState, useRef, useContext } from 'react'
 import dictionaryLogo from '../../images/logo.svg'
 import IconMoon from '../../images/icon-moon.svg'
 import DropDown from '../shared/dropDown/dropDown'
@@ -10,10 +10,11 @@ import { useApiCall } from '../../hooks/useApiCall'
 import DefinitionDesc from './definitionDescription'
 import { IconPlay } from '../../icon/iconPlay'
 import ThemeContext from '../themeContext/themeContext'
+import Loader from '../shared/loader/loader'
 
 const DictionaryContainer = () => {
   const [fontClass, setFontClass] = useState('sans')
-  const { apiResponse, search, setSearch } = useApiCall()
+  const { apiResponse, search, setSearch, isLoading } = useApiCall()
   const { theme } = useContext(ThemeContext)
   const { word, phonetic, meanings, phonetics, message, resolution, title } =
     apiResponse
@@ -68,7 +69,8 @@ const DictionaryContainer = () => {
       <div className="searchSection">
         <SearchBox setSearch={setSearch} search={search} />
       </div>
-      {word ? (
+      {isLoading && <Loader />}
+      {!isLoading && word && (
         <main class="main">
           <section className="title">
             <div className={`searchWord ${theme}`}>
@@ -100,7 +102,8 @@ const DictionaryContainer = () => {
             </span>
           </footer>
         </main>
-      ) : (
+      )}
+      {!isLoading && !word && (
         <div className="noMeaning">
           <div className="emoji-presentation">{title && '🙁'}</div>
           <p className="nomeaningTitle">{title}</p>

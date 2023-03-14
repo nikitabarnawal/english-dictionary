@@ -5,8 +5,10 @@ import { getWordMeaning } from '../api'
 export const useApiCall = () => {
   const [apiResponse, setApiResponse] = useState([])
   const [search, setSearch] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const getDefinition = Debounce(async (signal) => {
+    setIsLoading(true)
     try {
       const response = await getWordMeaning({
         search,
@@ -15,11 +17,14 @@ export const useApiCall = () => {
       if (response) {
         setApiResponse(response.data[0])
         setSearch(null)
+        setIsLoading(false)
       }
     } catch (err) {
       if (!signal.aborted) {
-        setApiResponse(err.response.data)
         console.log(err)
+        setApiResponse(err.response.data)
+        setSearch(null)
+        setIsLoading(false)
       }
     }
   }, 200)
@@ -37,5 +42,6 @@ export const useApiCall = () => {
     apiResponse,
     search,
     setSearch,
+    isLoading,
   }
 }
